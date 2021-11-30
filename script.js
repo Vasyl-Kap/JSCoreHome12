@@ -76,7 +76,7 @@ console.log(newArr5);
 let arr6 = [1, 2, 5, 0, 4, 5, 6];
 
 let sum6 = arr6.reduce((total, elem) => {
-    if (total > 3) return total;
+    if (total >= 8) return total;
     return total + elem;
 }, 0)
 console.log(sum6);
@@ -84,9 +84,21 @@ console.log(sum6);
 // #6.2 Reduce
 
 let arr62 = [1, 2, 3, 0, 4, 5, 6];
-let sum62 = arr62.reduce((total, elem, index, array) => {
-    if (total >= 10) {
+let sum62 = arr62.reduce((total, elem, index) => {
+    if (total > 10) {
+        console.log(index);
         return total;
     }
     return total + elem;
 }, 0)
+
+// #7
+
+let arr7 = [1, -2, 3, 0, 4, -5, 6, -11];
+let newArr7 = arr7.reduce(function(newArr, elem){
+    if (elem > 0) {
+        newArr.push(Math.sqrt(elem));
+    }
+    return newArr;
+}, [])
+console.log(newArr7);
